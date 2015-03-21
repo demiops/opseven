@@ -375,7 +375,7 @@
 		    name = $("input#name").val(),
 		    email = $("input#email").val(),
 		    subject = $("select#subject").val(),
-		    message = $("textarea#message").val(),
+		    message = $("textarea#message").val();
 		    $.ajax({
 			type: "POST",
 			url: "https://mandrillapp.com/api/1.0/messages/send.json",
