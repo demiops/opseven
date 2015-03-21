@@ -372,9 +372,9 @@
 	    $("#contact-form").submit(function(event) {
 		    event.preventDefault();
 		    var $form = $(this),
-		      name = $form.find("input[id='from']").val(),
-		      email = $form.find("input[id='from-addr']").val(),
-		      subject = $form.find("select[id='subject'] option: selected").val(),
+		      name = $form.find("input[id='name']").val(),
+		      email = $form.find("input[id='email']").val(),
+		      //subject = $form.find("select[id='subject'] option: selected").val(),
 		      message = $form.find("textarea[id='message']").val(),
 		      url = "https://api.mailgun.net/v3/sandbox8882ed6b77bb45e384eaf471c58a678c.mailgun.org/messages",
 		      user = "api:key-bd3727fedd7251e483b6b18ea6a1f894";
