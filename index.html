@@ -271,7 +271,7 @@
                         <div class="form-group">
                             <label for="name">
                                 Nombre</label>
-                            <input type="text" class="form-control" id="name" placeholder="Introduzca nombre" required="required" />
+                            <input type="text" class="form-control" id="name" name="from" placeholder="Introduzca nombre" required="required" />
                         </div>
                         <div class="form-group">
                             <label for="email">
@@ -279,7 +279,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                <input type="email" class="form-control" id="email" placeholder="Introduzca Correo Electronico" required="required" /></div>
+                                <input type="email" class="form-control" id="email" name="from-addr" placeholder="Introduzca Correo Electronico" required="required" /></div>
                         </div>
                         <div class="form-group">
                             <label for="subject">
@@ -368,6 +368,19 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.js"></script>
 
+    <script>
+	    $("#contact-form").submit(function(event) {
+		    event.preventDefault();
+		    var $form = $(this),
+		      name = $form.find("input[id='name']").val(),
+		      email = $form.find("input[id='email']").val(),
+		      subject = $form.find("select[id='subject'] option: selected").val(),
+		      message = $form.find("textarea[id='message']").val(),
+		      url = "https://api.mailgun.net/v3/sandbox8882ed6b77bb45e384eaf471c58a678c.mailgun.org/messages",
+		      user = "api:key-bd3727fedd7251e483b6b18ea6a1f894";
+
+	    });
+    </script>
 </body>
 
 </html>
