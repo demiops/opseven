@@ -377,8 +377,9 @@
 		    subject = $("select#subject").val(),
 		    message = $("textarea#message").val(),
 		    url = "https://api.mailgun.net/v3/sandbox8882ed6b77bb45e384eaf471c58a678c.mailgun.org/messages",
-		    user = "api:key-bd3727fedd7251e483b6b18ea6a1f894";
-		    params = 'from=' + name + ' ' + email + '&to=mzuniga@demiops.com&subject=' + subject + '&text=' + message 
+		    user = "api:key-bd3727fedd7251e483b6b18ea6a1f894",
+		    to = encodeURIComponent('mzuniga@demiops.com');
+		    params = 'from=\'' + name + ' <' + encodeURIComponent(email) + '>\'&to=\'' + to + '\'&subject=\'' + subject + '\'&text=\'' + message + '\'' 
 		    alert(params);
 	    });
     </script>
