@@ -376,11 +376,36 @@
 		    email = $("input#email").val(),
 		    subject = $("select#subject").val(),
 		    message = $("textarea#message").val(),
-		    url = "https://api.mailgun.net/v3/sandbox8882ed6b77bb45e384eaf471c58a678c.mailgun.org/messages",
-		    user = "api:key-bd3727fedd7251e483b6b18ea6a1f894",
-		    to = encodeURIComponent('mzuniga@demiops.com');
-		    params = 'from=\'' + name + ' <' + encodeURIComponent(email) + '>\'&to=\'' + to + '\'&subject=\'' + subject + '\'&text=\'' + message + '\'' 
-		    alert(params);
+		    $.ajax({
+			type: "POST",
+			url: "https://mandrillapp.com/api/1.0/messages/send.json",
+			data: {
+  				'key': 'PdEJIZqAFPgIvr7x9KUMvg',
+  				'message': {
+     					'from_email': email,
+					'from_name': name,
+     					'subject': subject,
+					'text': message,
+     					'to': [
+        					{ 
+          					'email': 'mzuniga@demiops.com',
+          					'name': 'Miguel Zuniga',
+          					'type': 'to'
+        					}
+     					],
+					'headers': {
+						'Reply-To': email
+					},
+     					'autotext': 'true'
+  				}
+			}
+		}).done(function(response) { 
+			alert("Mensaje Enviado...");
+			$("input#name").val('');
+			$("input#email").val('');
+			$("select#subject").val('na');
+			$("textarea#message").val('');
+		});
 	    });
     </script>
 </body>
